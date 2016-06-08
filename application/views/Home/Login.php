@@ -26,7 +26,7 @@
 		$("#formLogin").validate({
 			errorElement: 'span',
 			rules:{
-				usuario:{ required: true, },
+				usuario:{ required: true },
 				senha:{ required: true }
 			},
 			messages:{
@@ -37,13 +37,13 @@
 				var dados = $("#formLogin").serialize();
 	                $.ajax({
 	                  type: "POST",
-	                  url: "index.php/Home/autenticar?ajax=true",
+	                  url: "<?=base_url('index.php/Home/autenticar?ajax=true')?>",
 	                  data: dados,
 	                  dataType: 'json',
 	                  success: function(data)
 	                  {
 	                    if(data.result == true){
-	                        window.location.href = "index.php/Principal";
+	                        window.location.href = "<?=base_url('index.php/Principal')?>";
 	                    } else{
 	                    	var p = "<?=$this->session->flashdata('danger')?>";
 	                    	$("#erro").addClass("alert").addClass("alert-danger").text(p);

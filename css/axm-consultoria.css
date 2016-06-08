@@ -1,3 +1,12 @@
 .espacamentoTop{
 	margin-top: 20px;
 }
+
+.espacamentoLeft{
+	margin-left: 30px;
+}
+
+.espacamentoTopBottom{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

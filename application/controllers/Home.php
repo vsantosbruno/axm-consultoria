@@ -12,8 +12,6 @@ Class Home extends CI_Controller{
 	}
 
 	public function autenticar(){
-		$this->load->library("form_validation");
-
 		$this->form_validation->set_rules("usuario","Usuario","required|trim|min_length[3]|max_length[25]");
 		$this->form_validation->set_rules("senha","Senha","required|trim|min_length[4]|max_length[20]");
 

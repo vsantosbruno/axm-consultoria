@@ -10,4 +10,5 @@
 <body>
 <head>
 	<h1 class="text-center">Sistema de controle de estoque</h1>
+	<?php $usuario = $this->session->userdata("usuario_logado"); ?>
 </head>
