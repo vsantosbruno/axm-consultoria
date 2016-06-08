@@ -9,7 +9,7 @@ Class Home_model extends CI_Model{
 			$this->db->limit(1);
 			$user = $this->db->get("usuario")->row_array();
 
-			if(count($user) > 0){
+			if($user != null){
 				return $user;	
 			} 
 
