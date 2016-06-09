@@ -33,7 +33,6 @@
 <footer class="thumbnail">
 	<?php $usuario = $this->session->userdata("usuario_logado");?>
 	<p>Usuário logado: <strong><em><?=$usuario['nome_usuario']?></em></strong></p>
-	<input class="btn btn-danger" type="submit" id="limpar" name="sair" value="Sair">
 </footer>
 <script src=<?=base_url("js/jquery-2.2.3.min.js")?>></script>
 <script src=<?=base_url("js/bootstrap.min.js")?>></script>
@@ -69,13 +68,15 @@
                  data: dados,
                  dataType: 'json',
                  success: function(data){
-                 	var p = '<?=$this->session->flashdata('success')?>';
-                 	$("#mensagem").addClass("alert").addClass("alert-success").text(p);
-                 	window.location.href("<?=base_url('index.php/Produtos')?>");
-                 }
-                 error: function(data){
-	                 var p = '<?=$this->session->flashdata('danger')?>';
-                 	$("#mensagem").addClass("alert").addClass("alert-danger").text(p);
+                 	if(data.result==true){
+                 		var p = '<?=$this->session->flashdata('success')?>';
+                 		$("#mensagem").addClass("alert").addClass("alert-success").text(p);	
+                 	} else{
+						var p = '<?=$this->session->flashdata('danger')?>';
+		             	$("#mensagem").addClass("alert").addClass("alert-danger").text(p);
+                 	}
+                 	
+                 	// window.location.href("<?=base_url('index.php/Produtos')?>");
                  }
                  });
 

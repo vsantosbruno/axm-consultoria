@@ -1,6 +1,6 @@
 <?php $this->load->view("Static/Header.php"); ?>
 <?php $this->load->view("Static/Menu");?>
-<?php $this->output->enable_profiler(TRUE); ?>
+
 <div class="col-md-10">
 	<div id="header">
 		<strong>
@@ -56,7 +56,6 @@
 <footer class="thumbnail">
 	<?php $usuario = $this->session->userdata("usuario_logado");?>
 	<p>Usuário logado: <strong><em><?=$usuario['nome_usuario']?></em></strong></p>
-	<input class="btn btn-danger" type="submit" id="limpar" name="sair" value="Sair">
 </footer>
 <script src=<?=base_url("js/jquery-2.2.3.min.js")?>></script>
 <script src=<?=base_url("js/bootstrap.min.js")?>></script>
@@ -93,8 +92,12 @@
                  data: dados,
                  dataType: 'json',
                  success: function(data){
-                 	if(data.result == false){
-                 		alert(data.erro);	
+                 	if(data.result==true){
+                 		var p = '<?=$this->session->flashdata('success')?>';
+                 		$("#mensagem").addClass("alert").addClass("alert-success").text(p);	
+                 	} else{
+						var p = '<?=$this->session->flashdata('danger')?>';
+		             	$("#mensagem").addClass("alert").addClass("alert-danger").text(p);
                  	}
                  }
                  });

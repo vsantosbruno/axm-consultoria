@@ -5,9 +5,6 @@
 <footer class="thumbnail">
 	<?php $usuario = $this->session->userdata("usuario_logado");?>
 	<p>Usuário logado: <strong><em><?=$usuario['nome_usuario']?></em></strong></p>
-	<form action="<?=base_url('index.php/')?>">
-		<input class="btn btn-danger" type="submit" id="sair" name="sair" value="Sair">
-	</form>
 </footer>
 <script src=<?=base_url("js/jquery-2.2.3.min.js")?>></script>
 <script src=<?=base_url("js/bootstrap.min.js")?>></script>
