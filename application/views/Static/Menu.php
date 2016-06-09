@@ -9,5 +9,6 @@
 		<button class="list-group-item btn btn-default" data-target="#gestaoCelular" data-toggle="collapse">Estoque <span class="caret"/></button>
 			<ul id="gestaoCelular" class="collapse nav list-group">
 				<li><?= anchor('Estoque','Compra de produtos'); ?></li>
+				<li><?= anchor('Baixa','Baixa de produtos'); ?></li>
 			</ul>
 	</div>

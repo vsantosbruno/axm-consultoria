@@ -53,4 +53,9 @@ Class Home extends CI_Controller{
 			}
 		}
 	}
+
+	public function sair(){
+		$this->session->unset_userdata("usuario_logado");
+		redirect("/");
+	}
 }

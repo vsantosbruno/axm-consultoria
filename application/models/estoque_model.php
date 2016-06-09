@@ -9,10 +9,24 @@ Class Estoque_model extends CI_Model{
 		$this->db->select("fornecedor.id,fornecedor.nome");
 		$fornecedores = $this->db->get("fornecedor")->result_array();
 
-
 		if($produtos != null && $fornecedores != null){
-			$produtosEFornecedores = array('produtos' => $produtos, 'fornecedores' => $fornecedores);	
+			$produtosEFornecedores = array(
+				'produtos' => $produtos,
+				'fornecedores' => $fornecedores,
+				);	
 			return $produtosEFornecedores;
+		}
+
+		return false;
+	}
+
+	public function getInfoParaBaixa(){
+		$this->db->select("produto_estoque.id, produto_estoque.quantidade, produto_estoque.produto_id,produto.id,produto.nome");
+		$this->db->join("produto","produto.id=produto_estoque.produto_id");
+		$produtos_estoque = $this->db->get("produto_estoque")->result_array();
+
+		if($produtos_estoque != null){
+			return $produtos_estoque;
 		}
 
 		return false;
@@ -90,6 +104,23 @@ Class Estoque_model extends CI_Model{
 			if($this->db->affected_rows() == 1){
 				return true;
 			}
+		}
+
+		return false;
+	}
+
+	public function cadastraBaixa($baixa = ""){
+		if($baixa != null){
+			$this->db->insert("produto_solicitacao_baixa_estoque",$baixa);
+
+			$this->db->where("produto_estoque.produto_id", $baixa['produto_id']);
+			$produto_estoque = $this->db->get("produto_estoque")->row_array();
+			$produto_estoque['quantidade_baixa'] = $produto_estoque['quantidade'] - $baixa['quantidade'];
+
+			$this->db->where("produto_estoque.id", $produto_estoque['id']);
+			$this->db->update("produto_estoque", $produto_estoque);
+
+			return true;
 		}
 
 		return false;
