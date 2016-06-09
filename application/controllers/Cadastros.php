@@ -18,7 +18,7 @@ Class Cadastros extends CI_Controller{
 
 		if($this->form_validation->run() == false){
 			if($ajax){
-				$json = array('result' => false);
+				$json = array('result' => false,'falha' => 'falhou na validação');
 				echo json_encode($json);
 				$this->session->set_flashdata("danger","Erro de validação.");
 			} else{
@@ -29,8 +29,9 @@ Class Cadastros extends CI_Controller{
 			$senha = md5($this->input->post("senha"));
 
 			$dados = array(
-				'usuario' => $usuario,
-				'senha' => $senha
+				'nome_usuario' => $usuario,
+				'senha' => $senha,
+				'data_criacao' => date('Y-m-d')
 				);
 
 			$this->load->model("cadastros_model");
@@ -38,7 +39,7 @@ Class Cadastros extends CI_Controller{
 			if($this->cadastros_model->verificaUsuario($usuario)){
 				if($this->cadastros_model->cadastraUsuario($dados)){
 					if($ajax){
-						$json = array('result' => true);
+						$json = array('result' => true,'falha' => 'deu certo');
 						echo json_encode($json);
 						$this->session->set_flashdata("success","Usuário cadastrado com sucesso.");
 					} else{
@@ -47,7 +48,7 @@ Class Cadastros extends CI_Controller{
 				}
 			} else{
 				if($ajax){
-					$json = array('result' => false);
+					$json = array('result' => false,'falha' => 'já tem cadastrado');
 					echo json_encode($json);
 					$this->session->set_flashdata("danger","Usuário já está cadastrado no banco de dados");
 				} else{

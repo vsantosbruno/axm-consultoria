@@ -10,17 +10,17 @@
 		</strong>
 	</div>
 	<div id="body" class="container-fluid">
-		<form id="formCadUsuarios">
+		<form id="formCadUsuarios" action="index.php/Cadastros/cadastrarUsuario" method="POST">
 			<div class='form-group'>
-				<div class="col-md-5">
+				<div class="col-md-7">
 					<label>Nome de usuário</label>
 					<input class="form-control" type="text" id="usuario" name="usuario" placeholder="Digite um nome de usuário">
-				</div>
-				<div class="col-md-5">
+				</div></br>
+				<div class="col-md-7">
 					<label>Senha</label>
 					<input class="form-control" type="password" id="senha" name="senha" placeholder="Digite uma senha para o usuário">
-				</div>
-				<div class="espacamentoTopBottom col-md-4">
+				</div></br>
+				<div class="espacamentoTopBottom col-md-7">
 					<input class="btn btn-success" type="submit" name="cadastrar" value="Cadastrar">
 					<button class="btn btn-default" id="limpar" name="limpar">Limpar</button>
 				</div>
@@ -65,27 +65,27 @@
 				}
 			},
 			errorElement: 'span',
+			
 			submitHandler: function(){
 				var dados = $("#formCadUsuarios").serialize();
 				$.ajax({
-	                  type: "POST",
-	                  url: "base_url()"."Cadastro/cadastrarUsuario?ajax=true",
-	                  data: dados,
-	                  dataType: 'json',
-	                  success: function(data)
-	                  {
-	                    if(data.result == true){
-	                        var p = "<?=$this->session->flashdata('success')?>";
-	                    	$("#mensagem").addClass("alert").addClass("alert-success").text(p);
-	                    } else{
-	                    	var p = "<?=$this->session->flashdata('danger')?>";
-	                    	$("#erro").addClass("alert").addClass("alert-danger").text(p);
+                  type: "POST",
+                  url: "<?=base_url('index.php/Cadastros/cadastrarUsuario?ajax=true')?>",
+                  data: dados,
+                  dataType: 'json',
+                  success: function(data)
+                  {
+                    if(data.result == true){
+                    	var p = '<?=$this->session->flashdata("success");?>';
+                    	$("#mensagem").addClass("alert").addClass("alert-success").text(p);
+                    } else{
+                    	var p = '<?=$this->session->flashdata("danger");?>';
+                    	$("#mensagem").addClass("alert").addClass("alert-danger").text(p);
+                    }
+                  }
+                  });
 
-	                    }
-	                  }
-	                  });
-
-	                  return false;
+              return false;
 			}
 		});
 	});

@@ -16,9 +16,13 @@ Class Cadastros_model extends CI_Model{
 		return false;
 	}
 
-	public function cadastraUsuario($usuario = !!){
+	public function cadastraUsuario($usuario = ""){
 		if($usuario != null){
-			$this->db->insert("usuario",$usuario)
+			$this->db->insert("usuario",$usuario);
+
+			if($this->db->affected_rows() == 1){
+				return true;
+			}
 		}
 
 		return false;

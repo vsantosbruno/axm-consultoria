@@ -5,7 +5,7 @@
 	<div class="col-md-4"></div>
 	<div class="col-md-4 thumbnail" style="margin-top:15%">
 		<div>
-		<form id="formLogin" method="POST" action="index.php/Home/autenticar">
+		<form id="formLogin" method="POST" action="<?=base_url('index.php/Home/autenticar')?>">
 			<input class="form-control" type="text" id="usuario" name="usuario" placeholder="Usuário">
 			<input class="espacamentoTop form-control" type="password" id="senha" name="senha" placeholder="Senha">
 			<input class="espacamentoTop btn btn-primary col-md-4" type="submit" id="entrar" name="entrar" value="Entrar">
