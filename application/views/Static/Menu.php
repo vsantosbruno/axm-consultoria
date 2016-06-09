@@ -2,7 +2,7 @@
 	<div class="list-group col-md-2 thumbnail">
 		<button class="list-group-item btn btn-default" data-target="#cadastro" data-toggle="collapse">Cadastrar <span class="caret"/></button>
 			<ul id="cadastro" class="collapse nav list-group">
-				<li><?= anchor('Cadastros','Usuários'); ?></li>
+				<li><?= anchor('Usuarios','Usuários'); ?></li>
 				<li><?= anchor('gestao/financeira/saidas','Fornecedores'); ?></li>
 				<li><?= anchor('gestao/financeira/arrecadacao','Produtos'); ?></li>
 			</ul>

@@ -10,7 +10,7 @@
 		</strong>
 	</div>
 	<div id="body" class="container-fluid">
-		<form id="formCadUsuarios" action="index.php/Cadastros/cadastrarUsuario" method="POST">
+		<form id="formCadUsuarios" action="index.php/Usuarios/cadastrarUsuario" method="POST">
 			<div class='form-group'>
 				<div class="col-md-7">
 					<label>Nome de usuário</label>
@@ -70,7 +70,7 @@
 				var dados = $("#formCadUsuarios").serialize();
 				$.ajax({
                   type: "POST",
-                  url: "<?=base_url('index.php/Cadastros/cadastrarUsuario?ajax=true')?>",
+                  url: "<?=base_url('index.php/Usuarios/cadastrarUsuario?ajax=true')?>",
                   data: dados,
                   dataType: 'json',
                   success: function(data)

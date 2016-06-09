@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class Cadastros extends CI_Controller{
+Class Usuarios extends CI_Controller{
 	public function index(){
 		if(verifica_login($this->session)){
 			$this->load->view("Cadastros/Usuarios");
