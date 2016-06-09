@@ -1,6 +1,5 @@
 # axm-consultoria
 
-AJUSTES DE CONFIGURAÇÕES
 No arquivo "config" localizado em "/application/config" altere os paramentro:
 	
 	$config['base_url'] = 'http://localhost/axm-consultoria': COLOQUE O CAMINHO ONDE O SISTEMA ESTÁ HOSPEDADO
