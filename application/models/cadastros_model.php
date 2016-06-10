@@ -5,9 +5,9 @@ Class Cadastros_model extends CI_Model{
 	public function verificaUsuario($usuario = ""){
 		if($usuario != null){
 			$this->db->where("nome_usuario", $usuario);
-			$user = $this->db->get("usuario")->row_array();
+			$usuariosBanco = $this->db->get("usuario")->result_array();
 
-			if($user == null){
+			if($usuariosBanco == null){
 				return true;
 			}
 
@@ -28,18 +28,25 @@ Class Cadastros_model extends CI_Model{
 		return false;
 	}
 
-	public function autentica($usuario = "", $senha = ""){
-		if($usuario != null && $senha != null){
-			$this->db->where("nome_usuario", $usuario);
-			$this->db->where("senha", $senha);
-			$this->db->limit(1);
-			$user = $this->db->get("usuario")->row_array();
-
-			if($user != null){
-				return $user;	
+	public function verificaProduto($produto = ""){
+		if($produto != null){
+			$this->db->where("nome",$produto);
+			$produtosBanco = $this->db->get("produto")->result_array();
+			if($produtosBanco == null){
+				return true;
 			} 
-
 			return false;
+		}
+		return false;
+	}
+
+	public function cadastraProduto($produto = ""){
+		if($produto != null){
+			$this->db->insert("produto",$produto);
+
+			if($this->db->affected_rows() == 1){
+				return true;
+			}
 		}
 
 		return false;

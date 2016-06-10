@@ -3,8 +3,8 @@
 		<button class="list-group-item btn btn-default" data-target="#cadastro" data-toggle="collapse">Cadastrar <span class="caret"/></button>
 			<ul id="cadastro" class="collapse nav list-group">
 				<li><?= anchor('Usuarios','Usuários'); ?></li>
-				<li><?= anchor('gestao/financeira/saidas','Fornecedores'); ?></li>
-				<li><?= anchor('gestao/financeira/arrecadacao','Produtos'); ?></li>
+				<li><?= anchor('Produtos','Produtos'); ?></li>
+				<li><?= anchor('gestao/financeira/arrecadacao','Fornecedores'); ?></li>
 			</ul>
 		<button class="list-group-item btn btn-default" data-target="#gestaoCelular" data-toggle="collapse">Gestão Celular <span class="caret"/></button>
 			<ul id="gestaoCelular" class="collapse nav list-group">
