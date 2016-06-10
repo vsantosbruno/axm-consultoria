@@ -4,7 +4,7 @@
 			<ul id="cadastro" class="collapse nav list-group">
 				<li><?= anchor('Usuarios','Usuários'); ?></li>
 				<li><?= anchor('Produtos','Produtos'); ?></li>
-				<li><?= anchor('gestao/financeira/arrecadacao','Fornecedores'); ?></li>
+				<li><?= anchor('Fornecedores','Fornecedores'); ?></li>
 			</ul>
 		<button class="list-group-item btn btn-default" data-target="#gestaoCelular" data-toggle="collapse">Gestão Celular <span class="caret"/></button>
 			<ul id="gestaoCelular" class="collapse nav list-group">

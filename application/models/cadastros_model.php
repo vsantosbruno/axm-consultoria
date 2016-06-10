@@ -51,4 +51,28 @@ Class Cadastros_model extends CI_Model{
 
 		return false;
 	}
+
+	public function verificaCpfFornecedor($cpf = ""){
+		if($cpf != null){
+			$this->db->where("cpf",$cpf);
+			$cpfBanco = $this->db->get("fornecedor")->result_array();
+			if($cpfBanco == null){
+				return true;
+			} 
+			return false;
+		}
+		return false;
+	}
+
+	public function cadastraFornecedor($fornecedor = ""){
+		if($fornecedor != null){
+			$this->db->insert("fornecedor",$fornecedor);
+
+			if($this->db->affected_rows() == 1){
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
