@@ -4,7 +4,7 @@
 	<div id="header">
 		<strong>
 			<em>
-				<h3 class="espacamentoLeft">Cadastro de fornecedores</h3>
+				<h3 class="espacamentoLeft">Compra de produto</h3>
 				<p id="mensagem"></p>
 			</em>
 		</strong>
@@ -12,11 +12,11 @@
 	<div id="body" class="container-fluid">
 		<form id="formCadFornecedores">
 			<div class="espacamentoTop col-md-7">
-				<label>Nome do fornecedor</label>
+				<label>Produto</label>
 				<input class="form-control" type="text" id="fornecedor" name="fornecedor" placeholder="Digite o nome do fornecedor">
 			</div>
 			<div class="espacamentoTop col-md-7">
-				<label>Telefone</label>
+				<label>Fornecedor</label>
 				<input class="form-control" type="text" id="telefone" name="telefone" placeholder="Digite o telefone do fornecedor">
 			</div>
 			<div class="espacamentoTop col-md-7">
